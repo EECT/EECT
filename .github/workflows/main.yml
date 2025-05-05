@@ -48,7 +48,6 @@ jobs:
         onefile: true
         standalone: true
         windows-icon-from-ico: EECT_icon.ico
-        output-dir: dist
         include-data-dir: |
           img=img
           config=config
@@ -58,10 +57,11 @@ jobs:
     - name: Zip the build artifact
       run: |
         dir '.\dist\*'
-        powershell Compress-Archive -Path '.\dist\*' -DestinationPath 'EECT_build.zip' -Force
+        Compress-Archive -Path '.\dist\EECT.exe', '.\dist\config', '.\dist\img' -DestinationPath 'EECT_build.zip' -Force
+
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: eect-build
-        path: dist\EECT_build.zip
+        path: EECT_build.zip
