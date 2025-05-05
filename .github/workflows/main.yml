@@ -73,5 +73,5 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
-        name: eect-build
+        name: EECT_build-Windows-latest.zip
         path: EECT_build-windows-latest.zip
