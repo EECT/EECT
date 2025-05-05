@@ -40,10 +40,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Add config and img directories
-      run: |
-        mkdir config img
-
     - name: Build with Nuitka
       uses: Nuitka/Nuitka-Action@v1.2
       with:
