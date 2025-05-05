@@ -53,12 +53,12 @@ jobs:
           img=img
           config=config
         enable-plugins: tk-inter
-        disable-console: true
+        windows-console-mode: disable
 
     - name: Zip the build artifact
       run: |
-        cd dist
-        powershell Compress-Archive -Path EECT.exe, config, img -DestinationPath EECT_build.zip
+        dir '.\dist\*'
+        powershell Compress-Archive -Path '.\dist\*' -DestinationPath 'EECT_build.zip' -Force
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
