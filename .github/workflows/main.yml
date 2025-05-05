@@ -25,6 +25,17 @@ jobs:
       with:
         python-version: '3.11'
 
+    - name: Cache Python dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~\AppData\Local\pip\Cache
+        key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
+
+        restore-keys: |
+          ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-
+          ${{ runner.os }}-python-
+          ${{ runner.os }}-
+
     - name: Cache Nuitka Dependency Walker
       uses: actions/cache@v4
       with:
@@ -45,7 +56,7 @@ jobs:
       with:
         script-name: main.py
         output-file: EECT
-        onefile: true
+        onefile: false
         standalone: true
         windows-icon-from-ico: EECT_icon.ico
         include-data-dir: |
@@ -56,12 +67,11 @@ jobs:
 
     - name: Zip the build artifact
       run: |
-        dir '.\dist\*'
-        Compress-Archive -Path '.\dist\EECT.exe', '.\dist\config', '.\dist\img' -DestinationPath 'EECT_build.zip' -Force
-
+        dir '.\build\EECT\*'
+        Compress-Archive -Path '.\build\EECT\EECT.exe', '.\build\EECT\config', '.\build\EECT\img' -DestinationPath 'EECT_build-windows-latest.zip' -Force
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: eect-build
-        path: EECT_build.zip
+        path: EECT_build-windows-latest.zip
