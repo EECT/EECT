@@ -81,11 +81,15 @@ def settingsGUI(window):
         new_reg = reg_switch.get()
         save_config(new_cache, new_exp, new_reg)
 
-        save_tip = maliang.Toplevel(settings_window, size=(300, 0), title="已保存你所做出的更改")
+        save_tip = maliang.Toplevel(settings_window, size=(300, 70), title="已保存你所做出的更改")
         theme.customize_window(save_tip, hide_button="maxmin")
         save_tip.toolwindow(True)
         save_tip.topmost(True)
         save_tip.center()
+        save_tip_cv = maliang.Canvas(save_tip, auto_zoom=False)
+        save_tip_cv.place(width=300, height=70)
+
+        save_tip_text = maliang.Text(save_tip_cv, (40, 10), text="所有更改都已经保存，\n但重启软件后更改才会生效。", fontsize=16)
 
 
     save_btn = maliang.Button(

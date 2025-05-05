@@ -26,6 +26,9 @@ def list_of_developers(window):
 
     developers_text = maliang.Text(developers_window_cv, (20, 20), text="开发者：\n\nLyang1273 - 代码、图标\nWakana-0 - 图标")
 
+    # 前往贡献页
+    contributors = maliang.Button(developers_window_cv, (20, 210), text="在GitHub上查看所有贡献者", fontsize=12, command=lambda: webbrowser.open_new("https://github.com/EECT/EECT/graphs/contributors"))
+
 
 def open_source_license(window):
     license_window = maliang.Toplevel(window, size=(584, 430), icon="./img/EECT_logo.ico")

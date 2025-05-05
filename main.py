@@ -22,11 +22,14 @@ with open('./config/config.toml', 'rb') as f:
         ExperienceTheFeatures = config['ExperienceTheFeatures']
         Cache = config['Cache']
         UseRegistry = config['UseRegistry']
-    except KeyError:
+    except KeyError as e:
         ExperienceTheFeatures = False
-
-with open('./config/version.toml', 'rb') as f:
-    version = tomllib.load(f)
+        messagebox.showwarning("配置文件错误", f"读取配置文件时出错\n\n详细信息：{e}")
+try:
+    with open('./config/version.toml', 'rb') as f:
+        version = tomllib.load(f)
+except FileNotFoundError as e:
+    messagebox.showerror("配置文件错误", f"无法获取当前的版本信息\n\n详细信息：{e}")
 
     current_version = version['version']
     current_version_code = version['version_code']
@@ -197,7 +200,7 @@ def taskbar():
     show_weekday = maliang.Button(taskbar_window_cv, (10, 70), text='`在任务栏上显示星期', command=lambda: reg.show_weekday_in_taskbar(1))
     hide_weekday = maliang.Button(taskbar_window_cv, (220, 70), text='`在任务栏上隐藏星期', command=lambda: reg.show_weekday_in_taskbar(0))
 
-    tips = maliang.Label(taskbar_window_cv, (10, 250), text="带`的功能有点问题，请谨慎使用。")
+    tips = maliang.Label(taskbar_window_cv, (10, 250), text="带`的功能有点问题，请谨慎使用。", fontsize=14)
 
     restart_explorer = maliang.Button(taskbar_window_cv, (10, 300), text='重启资源管理器', command=lambda: os.system("taskkill /f /im explorer.exe & start explorer.exe"))
 
