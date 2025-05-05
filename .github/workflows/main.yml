@@ -68,7 +68,7 @@ jobs:
     - name: Zip the build artifact
       run: |
         dir '.\build\main.dist\*'
-        Compress-Archive -Path '.\build\main.dist\EECT.exe', '.\build\main.dist\config', '.\build\main.dist\img' -DestinationPath 'EECT_build-windows-latest.zip' -Force
+        Compress-Archive -Path '.\build\main.dist\*' -DestinationPath 'EECT_build-windows-latest.zip' -Force
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
