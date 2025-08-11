@@ -1,5 +1,10 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/JLMQfONupwbjFZZOMGp1" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
+
+> [!WARNING]  
+**注意：** 此项目由于不可抗力影响导致开发暂停，恢复时间不详。 
+
+
 #  Electrical Education Commission Toolbox 电教工具箱 
  简洁、易用的电教委工具。 
 
@@ -42,7 +47,7 @@ EECT离不开以下开源项目的支持：
    - [win32material](https://github.com/littlewhitecloud/win32material)
 
 ## 需要帮助？
-使用电邮、QQ、钉钉亦或是云湖寻求帮助。  
+使用电邮、QQ、钉钉寻求帮助。  
 **电子邮箱：** `2609350581@qq.com`  
 **QQ群：** [点击链接加入QQ群](https://qm.qq.com/q/RXRBj8f0se)  
 **钉钉群：**[点击链接加入钉钉群](https://wx-in-i.dingtalk.com/invite-page/weixin.html?bizSource=____source____&corpId=dingbd24d409cc6dd087ffe93478753d9884&inviteCode=E2YIUn2ViwwDVEC&origin=9999&scene=PCContactInviteNew)  
